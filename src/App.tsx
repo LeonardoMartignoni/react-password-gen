@@ -30,20 +30,20 @@ function App(): JSX.Element {
 
   const options = [
     {
-      "name": "uppercase-option",
-      "label": "Include Uppercase Letters",
+      name: "uppercase-option",
+      label: "Include Uppercase Letters",
     },
     {
-      "name": "lowercase-option",
-      "label": "Include Lowercase Letters",
+      name: "lowercase-option",
+      label: "Include Lowercase Letters",
     },
     {
-      "name": "numbers-option",
-      "label": "Include Numbers",
+      name: "numbers-option",
+      label: "Include Numbers",
     },
     {
-      "name": "symbols-option",
-      "label": "Include Symbols",
+      name: "symbols-option",
+      label: "Include Symbols",
     },
   ]
   
