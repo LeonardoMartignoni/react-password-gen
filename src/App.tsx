@@ -128,7 +128,7 @@ function App(): JSX.Element {
         </div>
 
         {options.map(option => (
-          <OptionsComponent option={option} handleCheckboxChange={handleCheckboxChange} />
+          <OptionsComponent key={option.name} option={option} handleCheckboxChange={handleCheckboxChange} />
         ))}
       </div>
 

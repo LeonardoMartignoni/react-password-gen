@@ -8,7 +8,7 @@ interface OptionsProps {
 
 function OptionsComponent({option, handleCheckboxChange}: OptionsProps): JSX.Element {
   return (
-    <div key={option.name} className="flex items-center mb-2">
+    <div className="flex items-center mb-2">
       <input
       type="checkbox"
       id={option.name}
