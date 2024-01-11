@@ -95,7 +95,7 @@ function App() {
   }
 
   return (
-    <div className="bg-slate-950 h-screen text-white font-mono flex items-center justify-center flex-col gap-4">
+    <div className="bg-slate-950 h-screen text-white flex items-center justify-center flex-col gap-4">
       <h1 className="font-bold text-xl text-center">Password Generator</h1>
 
       <div id="result" className="bg-gray-800 w-96 flex items-center py-4 px-6 relative">
