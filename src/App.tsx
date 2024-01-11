@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import OptionsComponent from './OptionsComponent';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-regular-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
@@ -125,16 +127,7 @@ function App() {
         </div>
 
         {options.map(option => (
-          <div key={option.name} className="flex items-center mb-2">
-            <input
-            type="checkbox"
-            id={option.name}
-            className="w-4 h-4 accent-green-500"
-            defaultChecked={true}
-            onChange={() => handleCheckboxChange(option.name)}
-            />
-            <label htmlFor={option.name} className="ms-3 leading-2">{option.label}</label>
-          </div>
+          <OptionsComponent option={option} handleCheckboxChange={handleCheckboxChange} />
         ))}
       </div>
 
