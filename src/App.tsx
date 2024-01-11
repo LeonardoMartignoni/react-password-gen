@@ -45,7 +45,7 @@ function App() {
     },
   ]
   
-  function generatePassword() {
+  function generatePassword(): void {
     let newPassword = "";
 
     for (let i = 0; i < passwordLength; i++) {
@@ -79,14 +79,16 @@ function App() {
     generatePassword();
   }, []);
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => setIsPasswordCopied(false), 2500);
+  function handlePasswordCopy(): Function {
+    setIsPasswordCopied(true);
+    navigator.clipboard.writeText(resultPassword);
 
+    // Show copied text for 2.5s
+    const timeoutId = setTimeout(() => setIsPasswordCopied(false), 2500);
     return () => {
       clearTimeout(timeoutId);
     }
-
-  }, [isPasswordCopied]);
+  }
 
   return (
     <div className="bg-slate-950 h-screen text-white font-mono flex items-center justify-center flex-col gap-4">
@@ -99,10 +101,7 @@ function App() {
           <FontAwesomeIcon
           icon={isPasswordCopied ? faCheck : faCopy}
           className="text-2xl text-green-500 hover:text-white transition-colors cursor-pointer"
-          onClick={() => {
-            setIsPasswordCopied(true);
-            navigator.clipboard.writeText(resultPassword);
-          }}
+          onClick={handlePasswordCopy}
           />
         </div>
       </div>
