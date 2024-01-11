@@ -58,24 +58,21 @@ function App() {
     setResultPassword(newPassword);
   }
 
+  type OptionHandlers = {
+    [key: string]: () => void;
+  }
+
   function handleCheckboxChange(name: string) {
-    switch (name) {
-      case 'uppercase-option':
-        setIsUppercaseChecked(!isUppercaseChecked);
-        break;
-      case 'lowercase-option':
-        setIsLowercaseChecked(!isLowercaseChecked);
-        break;
-      case 'numbers-option':
-        setIsNumbersChecked(!isNumbersChecked);
-        break;
-      case 'symbols-option':
-        setIsSymbolsChecked(!isSymbolsChecked);
-        break;
-      default:
-        break;
-    }
-  };
+    const optionHandlers: OptionHandlers = {
+      'uppercase-option': () => setIsUppercaseChecked(prev => !prev),
+      'lowercase-option': () => setIsLowercaseChecked(prev => !prev),
+      'numbers-option': () => setIsNumbersChecked(prev => !prev),
+      'symbols-option': () => setIsSymbolsChecked(prev => !prev),
+    };
+
+    const handler = optionHandlers[name];
+    handler();
+  }
 
   useEffect(() => {
     generatePassword();
