@@ -6,22 +6,22 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons'
 import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
-function App() {
-  const [ passwordLength, setPasswordLength ] = useState(12);
-  const [ resultPassword, setResultPassword ] = useState("");
-  const [ isPasswordCopied, setIsPasswordCopied ] = useState(false);
+function App(): JSX.Element {
+  const [ passwordLength, setPasswordLength ] = useState<number>(10);
+  const [ resultPassword, setResultPassword ] = useState<string>("");
+  const [ isPasswordCopied, setIsPasswordCopied ] = useState<boolean>(false);
 
-  const [ isUppercaseChecked, setIsUppercaseChecked ] = useState(true);
-  const [ isLowercaseChecked, setIsLowercaseChecked ] = useState(true);
-  const [ isNumbersChecked, setIsNumbersChecked ] = useState(true);
-  const [ isSymbolsChecked, setIsSymbolsChecked ] = useState(true);
+  const [ isUppercaseChecked, setIsUppercaseChecked ] = useState<boolean>(true);
+  const [ isLowercaseChecked, setIsLowercaseChecked ] = useState<boolean>(true);
+  const [ isNumbersChecked, setIsNumbersChecked ] = useState<boolean>(true);
+  const [ isSymbolsChecked, setIsSymbolsChecked ] = useState<boolean>(true);
 
-  const uppercaseLetters = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
-  const lowercaseLetters = Array.from({ length: 26 }, (_, index) => String.fromCharCode(97 + index));
-  const numbers = Array.from({ length: 10 }, (_, index) => index.toString());
-  const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '{', '}', '[', ']', ';', ':', ',', '.', '<', '>', '?', '/'];
+  const uppercaseLetters: Array<string> = Array.from({ length: 26 }, (_, index) => String.fromCharCode(65 + index));
+  const lowercaseLetters: Array<string> = Array.from({ length: 26 }, (_, index) => String.fromCharCode(97 + index));
+  const numbers: Array<string> = Array.from({ length: 10 }, (_, index) => index.toString());
+  const symbols: Array<string> = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '{', '}', '[', ']', ';', ':', ',', '.', '<', '>', '?', '/'];
 
-  const allCharacters = [
+  const allCharacters: Array<string> = [
     ...(isUppercaseChecked ? uppercaseLetters : []),
     ...(isLowercaseChecked ? lowercaseLetters : []),
     ...(isNumbersChecked ? numbers : []),
@@ -74,7 +74,7 @@ function App() {
       'symbols-option': () => setIsSymbolsChecked(prev => !prev),
     };
 
-    const handler = optionHandlers[name];
+    const handler: Function = optionHandlers[name];
     handler();
   }
 
@@ -119,7 +119,7 @@ function App() {
 
           <input
           type="range"
-          min="5"
+          min="1"
           max="20"
           value={passwordLength}
           className="w-full mb-6 mt-2 accent-green-500"
