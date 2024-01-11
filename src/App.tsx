@@ -48,14 +48,18 @@ function App() {
   ]
   
   function generatePassword(): void {
-    let newPassword = "";
-
-    for (let i = 0; i < passwordLength; i++) {
-      const randomIndex = Math.floor(Math.random() * allCharacters.length);
-      newPassword += allCharacters[randomIndex];
+    if (isUppercaseChecked || isLowercaseChecked || isNumbersChecked || isSymbolsChecked) {
+      let newPassword = "";
+  
+      for (let i = 0; i < passwordLength; i++) {
+        const randomIndex = Math.floor(Math.random() * allCharacters.length);
+        newPassword += allCharacters[randomIndex];
+      }
+  
+      setResultPassword(newPassword);
+    } else {
+      setResultPassword("No option selected");
     }
-
-    setResultPassword(newPassword);
   }
 
   type OptionHandlers = {
